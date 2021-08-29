@@ -14,6 +14,7 @@ Get Content
 
 ## 高可用架构
 ![avatar](https://i.niupic.com/images/2021/08/29/9tAW.png)
+
 注：可以使用Offline Key Generator来产生不重复的key作为hash，以此来避免碰撞
 
 
