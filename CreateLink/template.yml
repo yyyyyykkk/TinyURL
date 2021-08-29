@@ -1,0 +1,26 @@
+ROSTemplateFormatVersion: '2015-09-01'
+Transform: 'Aliyun::Serverless-2018-04-03'
+Resources:
+  tinyurl:
+    Type: 'Aliyun::Serverless::Service'
+    Properties:
+      TracingConfig: Disable
+      InternetAccess: true
+    create-link:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: python2.7
+        Timeout: 60
+        MemorySize: 512
+        EnvironmentVariables: {}
+        InstanceType: e1
+        CodeUri: ./tinyurl/create-link
+      Events:
+        defaultTrigger:
+          Type: HTTP
+          Properties:
+            AuthType: anonymous
+            Methods:
+              - GET
+              - POST
